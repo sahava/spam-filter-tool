@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Spam Filter Installer | Simo Ahava</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body class="cover full">
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W92WQQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NWCTLX');</script>
+
+<div class="container">
+  <div class="jumbotron coverbox clearfix">
+    <h1>Spam Filter Installer</h1>
+    <p><strong>The quota limit is just 500 writes/day, so if you get an error message that's the reason. I've applied for a quota increase.</strong></p>
+    <p>This tool lets you automatically create and link referral spam filters to your Google Analytics profiles. The list of spam sources is derived from this <a href="http://lonegoatuk.tumblr.com/post/107307494431/google-analytics-referral-spambot-list">Lone Goat</a> resource.</p>
+    <p>To create and link these filters, you will need <strong>EDIT</strong> access in the Google Analytics accounts you want to modify. This tool will only allow you to access privileged accounts.</p>
+    <p>Note that there is no "UPDATE" mechanism in this tool. The filters were <strong>last updated on May 5th, 2015</strong>, so if you want to make sure your spam filters are up to date, you might want to first delete all the <strong>sa_Spam_filter</strong> filters in your account, and run the tool on your profiles again. Read more about the tool <a href="http://www.simoahava.com/analytics/spam-filter-insertion-tool/">here</a> .</p>
+    <hr class="separator">
+    <div id="progress"></div>
+    <div id="info" class="clearfix">
+      <p>Get started by clicking the big, blue button below. You will be asked to authorize this tool to access your Google Analytics data. After doing so, you will be presented with options for filter creation.</p>
+      <p class="text-center"><button type="button" class="btn btn-primary btn-lg" id="init">Initialize</button></p>
+    </div>
+    <div class="col-md-6 form-group" id="accounts"></div>
+    <div class="col-md-6 form-group" id="profiles"></div>
+    <div class="col-md-12 text-center" id="action"></div>
+  </div>
+</div>
+<script src="js/authutil.js"></script>
+<script src="js/spamfilter.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
