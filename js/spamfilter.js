@@ -6,7 +6,9 @@
  **
 ***/
 var spamFilter = (function () {
-  // Declare utility variables
+  // Filters is an Array of spam hosts. Each string must be less than 255 characters.
+  // Use the Loan Goat resource to get the strings:
+  // http://lonegoatuk.tumblr.com/post/107307494431/google-analytics-referral-spambot-list
   var filters = [
     'buttons-for-website.com|darodar.com|econom.co|ilovevitaly.co|kambasoft.com|lumb.co|7makemoneyonline.com|ranksonic.info|savetubevideo.info|see-your-website-here.com|semalt.com|priceg.com|srecorder.com|descargar-musica-gratis.net|54.186.60.77|lomb.co',
     'medispainstitute|sq01|alienpayday|artobox|axisalternativementalhealthsharebutton.net|torontoplumbinggroup.com|tasteidea.com|paparazzistudios.com.au|76brighton.co.uk|powitania.pl|ilovevitaly.ru|ilovevitaly.com|blackhatworth.com|hulfingtonpost.com',
@@ -14,6 +16,8 @@ var spamFilter = (function () {
     'best-seo-offer.com|best-seo-solution.com|buttons-for-your-website.com|buy-cheap-online.info|cenoval.ru|cityadspix.com|depositfiles-porn.ga|forum69.info|generalporn.org|get-free-traffic-now.com|gobongo.info|googlsucks.com|humanorightswatch.org',
     'inboxdollars.com|iskalko.ru|lombia.co|lombia.com|luxup.ru|meendo-free-traffic.ga|mpftpupload.com|o-o-6-o-o.com|o-o-8-o-o.com|prlog.ru|rapidgator-porn.ga|resellerclub|superiends.org|theguardlan.com|torture.ml|youporn-forum.ga'
   ];
+  
+  // Declare utility variables
   var info = document.getElementById('info');
   var progress = document.getElementById('progress');
   var action = document.getElementById('action');
