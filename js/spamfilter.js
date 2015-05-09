@@ -1,5 +1,12 @@
+/** Google Analytics Spam Filter Insertion Tool
+ **
+ ** Created by: Simo Ahava (simo.s.ahava@gmail.com)
+ **
+ ** Remember to modify your Google API settings in authutil.js!
+ **
+***/
 var spamFilter = (function () {
-  "use strict";
+  // Declare utility variables
   var filters = [
     'buttons-for-website.com|darodar.com|econom.co|ilovevitaly.co|kambasoft.com|lumb.co|7makemoneyonline.com|ranksonic.info|savetubevideo.info|see-your-website-here.com|semalt.com|priceg.com|srecorder.com|descargar-musica-gratis.net|54.186.60.77|lomb.co',
     'medispainstitute|sq01|alienpayday|artobox|axisalternativementalhealthsharebutton.net|torontoplumbinggroup.com|tasteidea.com|paparazzistudios.com.au|76brighton.co.uk|powitania.pl|ilovevitaly.ru|ilovevitaly.com|blackhatworth.com|hulfingtonpost.com',
@@ -19,11 +26,13 @@ var spamFilter = (function () {
     links : {}
   };
   
+  // Run initialize() when the button is clicked
   var initialize = function() {
     progress.innerHTML = 'Fetching accounts...';
     gapi.client.analytics.management.accounts.list().then(queryAccounts, showError);
   };
   
+  // Creates the googleObj['accounts'] hierarchy for each account you have EDIT access to
   var queryAccounts = function(resp) {
     items = resp.result.items;
     found = false;
@@ -52,6 +61,7 @@ var spamFilter = (function () {
     }
   };
   
+  // Builds the accounts selector menu based on the googleObj['accounts'] hierarchy
   var buildAccountsMenu = function(msg) {
     lab = document.createElement('label');
     lab.setAttribute('for', 'gaAccounts');
@@ -79,7 +89,8 @@ var spamFilter = (function () {
     progress.innerHTML= '';
   };
   
-  // Event handler for account selection
+  // When an account is selected and property/profile hierarchy has not yet been created,
+  // queryProperties() first fetches all properties in the account
   var queryProperties = function(e) {
     sel = e.target;
     if (sel.selectedIndex != 0) {
@@ -96,6 +107,7 @@ var spamFilter = (function () {
     }
   };
   
+  // Build the googleObj['links'] hierarchy for properties
   var buildPropertyLinks = function(resp) {
     items = resp.result.items;
     if (resp.result && items && items.length) {
@@ -112,12 +124,18 @@ var spamFilter = (function () {
       queryViews(aid);
     } else {
       showError({
-        'message' : 'No properties in selected account'
+        'reason' : {
+          'result' : {
+            'error' : {
+              'message' : 'No properties in selected account'
+            }
+          }
+        }
       });
     }
   };
 
-  // Function for fetching all profiles for a given accountId
+  // Fetch all profiles for all properties in the account
   var queryViews = function(aid) {
     if (googleObj['accounts'][aid]['props'].length) {
       propId = googleObj['accounts'][aid]['props'][0];
@@ -130,6 +148,7 @@ var spamFilter = (function () {
     }
   };
   
+  // Build the googleObj['links'] hierarchy for views
   var buildViewLinks = function(resp) {
     items = resp.result.items;
     for (i = 0, len = items.length; i < len; i += 1) {
@@ -142,7 +161,7 @@ var spamFilter = (function () {
     queryViews(aid);
   };
         
-  // Function for showing the properties & profiles select menu
+  // Build the multiple select menu based on the googleObj['links'] hierarhcy
   var buildPropsAndProfiles = function(accountId) {
     lab = document.createElement('label');
     sel = document.createElement('select');
@@ -182,7 +201,8 @@ var spamFilter = (function () {
     progress.innerHTML = '';
   };
 
-  // Event handler for "Submit" button click
+  // When the "Create and link filters" button is clicked, a
+  // googleObj['target']['hierarchy'] queue is built for processing
   var buildHierarchy = function(e) {
     if (gaLinks.options.selectedIndex > -1) {
       googleObj['target'] = {
@@ -237,6 +257,7 @@ var spamFilter = (function () {
     updateExistingFilters();
   };
   
+  // Update any existing filters if there's a mismatch
   var updateExistingFilters = function(resp) {
     if (resp) {
       googleObj['target']['filter' + resp.result.name.split('#')[1]] = resp.result.id;
@@ -257,6 +278,7 @@ var spamFilter = (function () {
     }
   };
   
+  // Create new filters if they don't exist yet
   var createNewFilters = function(resp) {
     if (resp) {
       googleObj['target']['filter' + resp.result.name.split('#')[1]] = resp.result.id;
@@ -288,6 +310,7 @@ var spamFilter = (function () {
     }
   };
   
+  // Check for existing filter links in the given profile
   var checkExistingLinks = function(resp) {
     progress.innerHTML += 'Linking filters to profile <strong>' + googleObj['target']['hierarchy'][0][3] + '</strong> (' + googleObj['target']['hierarchy'][0][1] + ')<br>';
     linksToSkip = {};
@@ -345,10 +368,12 @@ var spamFilter = (function () {
     }
   };
   
+  // Generic error function
   var showError = function(reason) {
     info.innerHTML = '<div class="alert alert-danger" role="alert">' + reason.result.error.message + '</div>';
   };
-
+  
+  // Expose public methods
   return {
     initialize : initialize,
     showError : showError
