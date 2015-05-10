@@ -23,7 +23,7 @@ function handleAuthResult(authResult) {
       'reason' : {
         'result' : {
           'error' : {
-            'message' : 'You do not have EDIT access to any Google Analytics accounts.'
+            'message' : 'Authentication failed.'
           }
         }
       }
