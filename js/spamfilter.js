@@ -253,7 +253,7 @@ var spamFilter = (function () {
         }
       }
     }
-    for (i = 1; i <= 5; i += 1) {
+    for (i = 1; i <= filters.length; i += 1) {
       if (!(i in found)) {
         filtersToCreate.push(i);
       }
