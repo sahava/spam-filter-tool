@@ -6,17 +6,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body class="cover full">
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W92WQQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NWCTLX');</script>
 
 <div class="container">
   <div class="jumbotron coverbox clearfix">
     <h1>Spam Filter Installer</h1>
+    <p><strong>Unfortunately there's an API quota of 500 write actions per day. I'm working on getting an increase, but you might want to follow the link below, download the source code, and run this off your own web server.</strong></p>
     <p>This tool lets you automatically create and link referral spam filters to your Google Analytics profiles. The list of spam sources is derived from this <a href="http://lonegoatuk.tumblr.com/post/107307494431/google-analytics-referral-spambot-list">Lone Goat</a> resource.</p>
     <p>To create and link these filters, you will need <strong>EDIT</strong> access in the Google Analytics accounts you want to modify. This tool will only allow you to access privileged accounts.</p>
     <p>Note that any existing filters with the names <strong>sa_Spam_filter_#N</strong> will be updated if there is a mismatch. Read more about the tool <a href="http://www.simoahava.com/analytics/spam-filter-insertion-tool/">here</a>. Download the source code <a href="https://github.com/sahava/spam-filter-tool">here</a>.</p>
@@ -29,6 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col-md-6 form-group" id="accounts"></div>
     <div class="col-md-6 form-group" id="profiles"></div>
     <div class="col-md-12 text-center" id="action"></div>
+    <div class="col-md-12"><a href="http://www.google.com/analytics"><img src="google-analytics-logo.png" style="float:right;"/></a></div>
   </div>
 </div>
 <script src="js/authutil.js"></script>
