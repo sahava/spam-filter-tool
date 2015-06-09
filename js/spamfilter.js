@@ -15,9 +15,9 @@ var spamFilter = (function () {
     'cenoval.ru|bestwebsitesawards.com|website-errors-scanner.com|adviceforum.info|baixar-musicas-gratis.com|buy-forum.ru|fbdownloader.com|savetubevideo.com|smailik.org|simple-share-buttons.com|social-buttons.com|4webmasters.org|adcash.com|amanda-porn.ga',
     'best-seo-offer.com|best-seo-solution.com|buttons-for-your-website.com|buy-cheap-online.info|cenoval.ru|cityadspix.com|depositfiles-porn.ga|forum69.info|generalporn.org|get-free-traffic-now.com|gobongo.info|googlsucks.com|humanorightswatch.org',
     'inboxdollars.com|iskalko.ru|lombia.co|lombia.com|luxup.ru|meendo-free-traffic.ga|mpftpupload.com|o-o-6-o-o.com|o-o-8-o-o.com|prlog.ru|rapidgator-porn.ga|resellerclub|superiends.org|theguardlan.com|torture.ml|youporn-forum.ga|guardlink.org',
-    'event-tracking.com|anal-acrobats.hol.es'
+    'event-tracking.com|anal-acrobats.hol.es|100dollars-seo.com'
   ];
-  
+
   // Declare utility variables
   var info = document.getElementById('info');
   var progress = document.getElementById('progress');
@@ -30,13 +30,13 @@ var spamFilter = (function () {
     accounts : {},
     links : {}
   };
-  
+
   // Run initialize() when the button is clicked
   var initialize = function() {
     progress.innerHTML = 'Fetching accounts...';
     gapi.client.analytics.management.accounts.list().then(queryAccounts, showError);
   };
-  
+
   // Creates the googleObj['accounts'] hierarchy for each account you have EDIT access to
   var queryAccounts = function(resp) {
     items = resp.result.items;
@@ -65,7 +65,7 @@ var spamFilter = (function () {
       buildAccountsMenu();
     }
   };
-  
+
   // Builds the accounts selector menu based on the googleObj['accounts'] hierarchy
   var buildAccountsMenu = function(msg) {
     lab = document.createElement('label');
@@ -93,7 +93,7 @@ var spamFilter = (function () {
     sel.addEventListener('change', queryProperties);
     progress.innerHTML= '';
   };
-  
+
   // When an account is selected and property/profile hierarchy has not yet been created,
   // queryProperties() first fetches all properties in the account
   var queryProperties = function(e) {
@@ -111,7 +111,7 @@ var spamFilter = (function () {
       }
     }
   };
-  
+
   // Build the googleObj['links'] hierarchy for properties
   var buildPropertyLinks = function(resp) {
     items = resp.result.items;
@@ -152,7 +152,7 @@ var spamFilter = (function () {
       buildPropsAndProfiles(aid);
     }
   };
-  
+
   // Build the googleObj['links'] hierarchy for views
   var buildViewLinks = function(resp) {
     items = resp.result.items;
@@ -165,7 +165,7 @@ var spamFilter = (function () {
     googleObj['accounts'][aid]['props'].shift();
     queryViews(aid);
   };
-        
+
   // Build the multiple select menu based on the googleObj['links'] hierarhcy
   var buildPropsAndProfiles = function(accountId) {
     lab = document.createElement('label');
@@ -261,7 +261,7 @@ var spamFilter = (function () {
     }
     updateExistingFilters();
   };
-  
+
   // Update any existing filters if there's a mismatch
   var updateExistingFilters = function(resp) {
     if (resp) {
@@ -282,7 +282,7 @@ var spamFilter = (function () {
       createNewFilters();
     }
   };
-  
+
   // Create new filters if they don't exist yet
   var createNewFilters = function(resp) {
     if (resp) {
@@ -314,7 +314,7 @@ var spamFilter = (function () {
       }).then(checkExistingLinks, showError);
     }
   };
-  
+
   // Check for existing filter links in the given profile
   var checkExistingLinks = function(resp) {
     progress.innerHTML += 'Linking filters to profile <strong>' + googleObj['target']['hierarchy'][0][3] + '</strong> (' + googleObj['target']['hierarchy'][0][1] + ')<br>';
@@ -330,7 +330,7 @@ var spamFilter = (function () {
     }
     linkFiltersToProfiles();
   };
-  
+
   // Recursively create the links between filters and profiles
   var linkFiltersToProfiles = function(resp) {
     counter = (googleObj['target']['counter'] = googleObj['target']['counter'] || 1);
@@ -372,12 +372,12 @@ var spamFilter = (function () {
       progress.innerHTML += 'Filters linked successfully, all done!';
     }
   };
-  
+
   // Generic error function
   var showError = function(reason) {
     info.innerHTML = '<div class="alert alert-danger" role="alert">' + reason.result.error.message + '</div>';
   };
-  
+
   // Expose public methods
   return {
     initialize : initialize,
