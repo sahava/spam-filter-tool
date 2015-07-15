@@ -15,7 +15,7 @@ var spamFilter = (function () {
     'cenoval.ru|bestwebsitesawards.com|website-errors-scanner.com|adviceforum.info|baixar-musicas-gratis.com|buy-forum.ru|fbdownloader.com|savetubevideo.com|smailik.org|simple-share-buttons.com|social-buttons.com|4webmasters.org|adcash.com|amanda-porn.ga',
     'best-seo-offer.com|best-seo-solution.com|buttons-for-your-website.com|buy-cheap-online.info|cenoval.ru|cityadspix.com|depositfiles-porn.ga|forum69.info|generalporn.org|get-free-traffic-now.com|gobongo.info|googlsucks.com|humanorightswatch.org',
     'inboxdollars.com|iskalko.ru|lombia.co|lombia.com|luxup.ru|meendo-free-traffic.ga|mpftpupload.com|o-o-6-o-o.com|o-o-8-o-o.com|prlog.ru|rapidgator-porn.ga|resellerclub|superiends.org|theguardlan.com|torture.ml|youporn-forum.ga|guardlink.org',
-    'event-tracking.com|anal-acrobats.hol.es|100dollars-seo.com'
+    'event-tracking.com|anal-acrobats.hol.es|100dollars-seo.com|floating-share-buttons.com|trafficmonetizer.org|success-seo.com|videos-for-your-business.com'
   ];
 
   // Declare utility variables
