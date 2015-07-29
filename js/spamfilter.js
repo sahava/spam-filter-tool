@@ -7,8 +7,6 @@
 ***/
 var spamFilter = (function () {
   // Filters is an Array of spam hosts. Each string must be less than 255 characters.
-  // Use the Loan Goat resource to get the strings:
-  // http://lonegoatuk.tumblr.com/post/107307494431/google-analytics-referral-spambot-list
   var filters = [
     '0n-line.tv|100dollars-seo.com|12masterov.com|1pamm.ru|4webmasters.org|5forex.ru|76brighton.com|7makemoneyonline.com|7zap.com|abovetherivernc.com|acads.net|acunetix-referrer.com|adcash.com|adelly.bg|adspart.com|adventureparkcostarica.com|adviceforum.info',
     'advokateg.ru|affordablewebsitesandmobileapps.com|afora.ru|akuhni.by|alessandraleone.com|aliexpress.com|allknow.info|allnews.md|allwomen.info|alpharma.net|altermix.ua|amanda-porn.ga|amt-k.ru|anal-acrobats.hol.es|anapa-inns.ru|android-style.com',
