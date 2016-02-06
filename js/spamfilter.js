@@ -400,6 +400,7 @@ var spamFilter = (function () {
   // Expose public methods
   return {
     initialize : initialize,
-    showError : showError
+    showError : showError,
+    filters : filters
   };
 })();

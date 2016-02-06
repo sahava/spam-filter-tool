@@ -16,6 +16,23 @@
     <div id="progress"></div>
     <div id="info" class="clearfix">
       <p>Get started by clicking the big, blue button below. You will be asked to authorize this tool to access your Google Analytics data. After doing so, you will be presented with options for filter creation.</p>
+      <div style="text-align: center">
+        <form autocomplete="off">
+          <div>
+            <label>clientId</label>
+            <input type="text" name="clientId" style="width: 300px;">
+          </div>
+          <div>
+            <label>apiKey</label>
+            <input type="text" name="apiKey" style="width: 300px;">
+          </div>
+          <div>
+            <input type="checkbox" name="filter_piwik">
+            <label>Use filter list from <a href="https://github.com/piwik/referrer-spam-blacklist">piwik/referrer-spam-blacklist</a></label>
+          </div>
+        </form>
+        <div class="log"></div>
+      </div>
       <p class="text-center"><button type="button" class="btn btn-primary btn-lg" id="init">Initialize</button></p>
     </div>
     <div class="col-md-6 form-group" id="accounts"></div>
